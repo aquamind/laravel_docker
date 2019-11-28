@@ -36,5 +36,11 @@ services:
     ports:
     - 3306:3306
 
+  node:
+    image: node
+    tty: true
+    working_dir: /home/node/app
+    volumes:
+      - ./server/:/home/node/app
 volumes:
   laravel_mysqldatavol:
