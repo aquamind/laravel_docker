@@ -36,6 +36,20 @@ services:
     ports:
     - 3306:3306
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_USER=laravel
+      - PMA_PASSWORD=laravel
+    ports:
+      - 8080:80
+    links:
+      - db
+    volumes:
+      - .docker/phpmyadmin/sessions:/sessions
+
   node:
     image: node
     tty: true
