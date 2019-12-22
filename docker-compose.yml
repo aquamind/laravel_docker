@@ -31,24 +31,8 @@ services:
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
     - laravel_mysqldatavol:/var/lib/mysql
-    - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
-    - ./docker/db/sql:/docker-entrypoint-initdb.d
     ports:
     - 3306:3306
-
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin
-    environment:
-      - PMA_ARBITRARY=1
-      - PMA_HOST=db
-      - PMA_USER=laravel
-      - PMA_PASSWORD=laravel
-    ports:
-      - 8080:80
-    links:
-      - db
-    volumes:
-      - .docker/phpmyadmin/sessions:/sessions
 
   node:
     image: node
