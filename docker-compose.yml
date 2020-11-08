@@ -40,5 +40,8 @@ services:
     working_dir: /home/node/app
     volumes:
       - ./server/:/home/node/app
+    ports:
+    - 6006:6006
+
 volumes:
   laravel_mysqldatavol:
