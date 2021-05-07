@@ -1,0 +1,3 @@
+CREATE USER laravel WITH PASSWORD 'laravel';
+CREATE DATABASE laravel;
+GRANT ALL PRIVILEGES ON DATABASE laravel TO laravel;

@@ -23,18 +23,13 @@ services:
     - php
 
   db:
-    image: mysql:8.0
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: laravel
-      MYSQL_USER: laravel
-      MYSQL_PASSWORD: laravel
-      TZ: 'Asia/Tokyo'
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-    volumes:
-    - ./docker/db/data:/var/lib/mysql
+    build: ./docker/db
     ports:
-    - 3306:3306
+      - 5432:5432
+    volumes:
+      - ./docker/db/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
 
   node:
     image: node
