@@ -9,7 +9,7 @@ RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
 
 #Composer install
-COPY --from=composer:1.10.20 /usr/bin/composer /usr/bin/composer
+COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 ENV COMPOSER_HOME /composer
